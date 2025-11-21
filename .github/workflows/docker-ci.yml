@@ -44,3 +44,6 @@ jobs:
       # Step 7: Push Docker Image
       - name: Push Docker Image
         run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/react-newproject:latest
+
+
+
