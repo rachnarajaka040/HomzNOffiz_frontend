@@ -1,33 +1,40 @@
-steps:
-  - name: 1. Checkout code
-    uses: actions/checkout@v3
+name: Build and Push Docker Image
 
-  - name: 2. Set up Node 18
-    uses: actions/setup-node@v3
-    with:
-      node-version: 18
+on:
+  push:
+    branches:
+      - main  # or the branch you want to trigger on
 
-  - name: 3. Install dependencies
-    # FIX: Setting working-directory to the project sub-folder
-    run: npm install
-    working-directory: ./HomzNOffiz_frontend
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
 
-  - name: 4. Build React App
-    # FIX: Setting working-directory to the project sub-folder
-    run: npm run build
-    working-directory: ./HomzNOffiz_frontend
+    steps:
+      - name: 1. Checkout code
+        uses: actions/checkout@v3
 
-  - name: 5. Login to Docker Hub
-    uses: docker/login-action@v2
-    with:
-      username: ${{ secrets.DOCKER_USERNAME }}
-      password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: 2. Set up Node 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-  - name: 6. Build Docker Image
-    # FIX: Setting working-directory to the project sub-folder. This assumes your Dockerfile is also inside this folder.
-    run: docker build -t ${{ secrets.DOCKER_USERNAME }}/react-newproject .
-    working-directory: ./HomzNOffiz_frontend
+      - name: 3. Install dependencies
+        run: npm install
+        working-directory: ./HomzNOffiz_frontend
 
-  - name: 7. Push Docker Image
-    # This step uses the full image name
-    run: docker push ${{ secrets.DOCKER_USERNAME }}/react-newproject:latest
+      - name: 4. Build React App
+        run: npm run build
+        working-directory: ./HomzNOffiz_frontend
+
+      - name: 5. Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: 6. Build Docker Image
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/react-newproject .
+        working-directory: ./HomzNOffiz_frontend
+
+      - name: 7. Push Docker Image
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/react-newproject:latest
