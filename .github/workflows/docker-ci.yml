@@ -31,7 +31,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: 6. Build Docker Image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/react-newproject .
+        run: docker build -t ${{ secrets.RachnaRajak040}}/react-newproject:latest .
 
       - name: 7. Push Docker Image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/react-newproject:latest
+        run: docker push ${{ secrets.RachnaworkRajak@1234}}/react-newproject:latest
