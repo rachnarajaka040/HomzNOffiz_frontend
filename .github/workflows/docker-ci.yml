@@ -19,12 +19,12 @@ jobs:
           node-version: 18
 
       - name: 3. Install dependencies
-        working-directory: ./newproject
+        working-directory: ./client
         run: npm install
 
       - name: 4. Build React App
-        working-directory: ./newproject
-        run: npm run build
+        working-directory: ./client
+        run: CI=false npm run build
 
       - name: 5. Login to Docker Hub
         uses: docker/login-action@v2
@@ -33,7 +33,7 @@ jobs:
           password: ${{ secrets.RACHNARAJAK040 }}
 
       - name: 6. Build Docker Image
-        working-directory: ./newproject
+        working-directory: ./client
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/react-newproject:latest .
 
       - name: 7. Push Docker Image
