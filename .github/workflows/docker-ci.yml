@@ -24,5 +24,5 @@ steps:
     run: docker build -t rachnarajak/react-newproject .
 
   - name: 7. Push Docker Image
-    # Corrected: We use the actual image name here, not another secret for the username part
+    # We use the actual image name here, as the login step handles authentication
     run: docker push rachnarajak/react-newproject:latest
