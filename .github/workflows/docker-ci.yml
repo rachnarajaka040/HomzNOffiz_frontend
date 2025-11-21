@@ -29,11 +29,11 @@ jobs:
         with:
           node-version: 18
 
-      - name: 4. Install dependencies
-        run: npm install
+      # - name: 4. Install dependencies
+      #   run: npm install
 
-      - name: 5. Build React App
-        run: npm run build
+      # - name: 5. Build React App
+      #   run: npm run build
 
       - name: 6. Login to Docker Hub
         uses: docker/login-action@v2
