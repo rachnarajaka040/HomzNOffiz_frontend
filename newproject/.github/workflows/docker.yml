@@ -1,5 +1,4 @@
 name: CI/CD Pipeline for React with Docker
-
 on:
   push:
     branches:
