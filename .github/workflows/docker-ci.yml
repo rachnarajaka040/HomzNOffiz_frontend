@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - main  # or the branch you want to trigger on
+      - main  # Change if you want another branch
 
 jobs:
   build-and-push:
@@ -20,11 +20,9 @@ jobs:
 
       - name: 3. Install dependencies
         run: npm install
-        working-directory: ./HomzNOffiz_frontend
 
       - name: 4. Build React App
         run: npm run build
-        working-directory: ./HomzNOffiz_frontend
 
       - name: 5. Login to Docker Hub
         uses: docker/login-action@v2
@@ -34,7 +32,6 @@ jobs:
 
       - name: 6. Build Docker Image
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/react-newproject .
-        working-directory: ./HomzNOffiz_frontend
 
       - name: 7. Push Docker Image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/react-newproject:latest
