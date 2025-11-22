@@ -41,6 +41,6 @@ jobs:
       - name: Build Docker Image
         run: docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/react-newproject:latest ./newproject
 
-      # Push Docker Image
+      
       - name: Push Docker Image
         run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/react-newproject:latest
