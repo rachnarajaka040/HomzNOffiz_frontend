@@ -85,7 +85,7 @@ export default function App() {
                     </label>
 
                     
-                        <select
+                        {/* <select
                             onChange={(e) => {
                                 setFilterParam(e.target.value);
                             }}
@@ -98,7 +98,7 @@ export default function App() {
                             <option value="Asia">Asia</option>
                             <option value="Europe">Europe</option>
                             <option value="Oceania">Oceania</option>
-                        </select>
+                        </select> */}
                         <span className="focus"></span>
                    
                 </div>
