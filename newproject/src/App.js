@@ -77,7 +77,7 @@ export default function App() {
                             name="search-form"
                             id="search-form"
                             className="search-input"
-                            placeholder="Search for..."
+                            placeholder="Search for Rachna Rajak"
                             value={q}
                             onChange={(e) => setQ(e.target.value)}
                         />
