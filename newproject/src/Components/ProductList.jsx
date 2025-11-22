@@ -81,6 +81,15 @@ function App() {
                             value={q}
                             onChange={(e) => setQ(e.target.value)}
                         />
+                         <input
+                            type="search"
+                            name="search-form"
+                            id="search-form"
+                            className="search-input"
+                            placeholder="Search for..."
+                            value={q}
+                            onChange={(e) => setQ(e.target.value)}
+                        />
                         <span className="sr-only">Search countries here</span>
                     </label>
 
