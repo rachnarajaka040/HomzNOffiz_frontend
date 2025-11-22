@@ -69,7 +69,7 @@ function App() {
         return <>loading...</>;
     } else {
         return (
-            <div className="wrapper">
+            <div className="wrapper ">
                 <div className="search-wrapper">
                     <label htmlFor="search-form">
                         <input
@@ -81,15 +81,7 @@ function App() {
                             value={q}
                             onChange={(e) => setQ(e.target.value)}
                         />
-                         <input
-                            type="search"
-                            name="search-form"
-                            id="search-form"
-                            className="search-input"
-                            placeholder="Search for..."
-                            value={q}
-                            onChange={(e) => setQ(e.target.value)}
-                        />
+                        
                         <span className="sr-only">Search countries here</span>
                     </label>
 
