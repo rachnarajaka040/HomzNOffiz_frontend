@@ -81,7 +81,7 @@ export default function App() {
                             value={q}
                             onChange={(e) => setQ(e.target.value)}
                         />
-                        <span className="sr-only">Search countries here</span>
+                        <span className="sr-only">Search name here</span>
                     </label>
 
                     
