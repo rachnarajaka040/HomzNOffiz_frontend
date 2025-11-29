@@ -71,6 +71,7 @@ export default function App() {
         return (
             <div className="wrapper">
                 <div className="search-wrapper">
+                    <marquee>i implement cicd in my first project</marquee>
                     <label htmlFor="search-form">
                         <input
                             type="search"
